@@ -108,6 +108,6 @@ def sleep(alpha, beta):
   time.sleep(rand.uniform(alpha, beta))
 
 if __name__ == "__main__":
-	print("This is a script for calculating NGD.")
+  print("This is a script for calculating NGD.")
 
-	
+   
