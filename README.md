@@ -47,6 +47,5 @@ This will return a dataframe object where ```matrix_df[i][j] = NGD(i, j)```
 ## Warnings <a name = "data"></a>
 
 * Using this script may be in violation of Google's TOS. Please use this script for research purposes only. 
-** And on a related note, queries are somewhat slow because I put in calls to ```sleep()``` to space out requests. You can change these, but I do not reccomend doing so. 
-
-* When dealing with Pairwise NGDs, the number of queries blows up very quickly. For a set of size ```n``` there are ```[(n-1)(n)]/2```distinct comparisons. 
+* And on a related note, queries are somewhat slow because I put in calls to ```sleep()``` to space out requests. You can change these, but I do not reccomend doing so. You'll get flagged quickly. 
+* When dealing with Pairwise NGDs, the number of queries blows up fast. For a set of size ```n``` there are ```[(n-1)(n)]/2```distinct comparisons. 
