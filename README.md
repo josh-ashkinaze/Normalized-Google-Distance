@@ -8,12 +8,14 @@ keywords. If keywords have many pages in common relative to their respective,
 independent frequencies, then these keywords are thought to be semantically 
 similar. 
 
+\begin{equation} \begin{bmatrix} x & \dot{x} & \theta & \dot{\theta} & L & m & M \end{bmatrix} \end{equation}
+
 If two search terms w1 and w2 never occur together on the same web 
 page, but do occur separately, the NGD between them is infinite. 
 
-If both terms always occur together, their NGD is zero.Just as a 'color palette' describes the colors of some visual object, an 'emotion palette' describes the emotions felt from a visual object. An EmotaPal combines both pieces (visual and psychological) of information. 
+Conversely, if both terms always occur together, their NGD is zero.
 
-## Core Data <a name = "data"></a>
+## Formula <a name = "data"></a>
 Functionally, this library provides methods to associate emotions with colors through an EmotaPal object. That object relies on a KNN model which predicts emotions from colors. The model was trained on a dataset constructed by parsing the dominant color of 100 Google Image results for 264 emotions. 
 
 [For more information on the data, please read here.](https://github.com/josh-ashkinaze/Emotion-Colors/blob/master/README.md)
