@@ -24,3 +24,16 @@ calculate_NGD(w1, w2)
 ```
 
 
+### Pairwise NGD
+
+To compute pairwise NGDs (ex: computing the NGD for a matrix of political candinates)
+
+``` Python
+pairwise_NGD(w1, w2)
+```
+
+To return the matrix as a dataframe: 
+``` Python
+matrix = pairwise_NGD(w1, w2)
+matrix_df = pairwise_NGD_to_df(matrix)
+```
