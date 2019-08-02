@@ -42,3 +42,7 @@ matrix_df = pairwise_NGD_to_df(distances)
 ```
 
 This will return a dataframe object where ```matrix_df[i][j] = NGD(i, j)```
+
+
+## Warnings <a name = "data"></a>
+Using this script may be in violation of Google's TOS. Please use this script for research purposes only. And on a related note, queries are somewhat slow because I put in calls to ```sleep()``` to space out requests. When dealing with Pairwise NGDs, the number of queries blows up very quickly. For a set of size ```n``` there are ```[(n-1)(n)]/2```distinct comparisons. 
