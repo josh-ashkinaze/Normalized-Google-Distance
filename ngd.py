@@ -54,7 +54,6 @@ def calculate_NGD(w1, w2, n_retries=10):
     w1 (str): word 1 
     w2 (str): word 2
     retries (int): Number of attempts to retry before returning NaN 
-
   Returns:
     if succesful:
       returns NGD
@@ -109,5 +108,3 @@ def sleep(alpha, beta):
 
 if __name__ == "__main__":
   print("This is a script for calculating NGD.")
-
-   
