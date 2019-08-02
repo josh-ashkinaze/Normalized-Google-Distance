@@ -37,8 +37,8 @@ This will return a nested dictionary, where ```distances[i][j] = NGD(i, j)```
 #### As a dataframe
 To return the matrix as a dataframe: 
 ``` Python
-matrix = pairwise_NGD(w1, w2)
-matrix_df = pairwise_NGD_to_df(matrix)
+distances = pairwise_NGD(w1, w2)
+matrix_df = pairwise_NGD_to_df(distances)
 ```
 
 This will return a dataframe object where ```matrix_df[i][j] = NGD(i, j)```
