@@ -20,7 +20,7 @@ Conversely, if both terms always occur together, their NGD is zero.
 To compute the NGD between two word: 
 
 ``` Python
-calculate_NGD(w1, w2)
+ngd = calculate_NGD(w1, w2)
 ```
 
 
@@ -30,7 +30,7 @@ calculate_NGD(w1, w2)
 To compute pairwise NGDs (ex: computing the NGD for a matrix of political candinates)
 
 ``` Python
-pairwise_NGD(w1, w2)
+distances = pairwise_NGD(w1, w2)
 ```
 This will return a nested dictionary, where ```dict[i][j] = NGD(i, j)```
 
