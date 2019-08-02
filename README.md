@@ -32,7 +32,7 @@ To compute pairwise NGDs (ex: computing the NGD for a matrix of political candin
 ``` Python
 distances = pairwise_NGD(w1, w2)
 ```
-This will return a nested dictionary, where ```dict[i][j] = NGD(i, j)```
+This will return a nested dictionary, where ```distances[i][j] = NGD(i, j)```
 
 #### As a dataframe
 To return the matrix as a dataframe: 
@@ -40,3 +40,5 @@ To return the matrix as a dataframe:
 matrix = pairwise_NGD(w1, w2)
 matrix_df = pairwise_NGD_to_df(matrix)
 ```
+
+This will return a dataframe object where ```matrix_df[i][j] = NGD(i, j)```
