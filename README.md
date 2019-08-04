@@ -36,4 +36,4 @@ matrix_df = pairwise_NGD_to_df(distances)
 # Warnings
 * Using this script may be in violation of Google's TOS. Please use this script for research purposes only.
 * And on a related note, queries are somewhat slow because I put in calls to sleep() to space out requests. You can change these, but I do not recommend doing so. You'll get flagged quickly.
-* When dealing with pairwise NGDs, the number of queries blows up fast. For a set of size n there are [(n-1)(n)]/2distinct comparisons.
+* When dealing with pairwise NGDs, the number of queries blows up fast. For a set of size ```n``` there are ```[(n-1)(n)]/2``` distinct comparisons.
