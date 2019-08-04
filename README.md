@@ -1,6 +1,6 @@
 
 # Normalized Google Distance
-
+[https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet]
 # About
 The Normalized Google Distance (NGD) is a semantic similarity measure, calculated based on the number of hits returned by Google for a set of keywords. If keywords have many pages in common relative to their respective, independent frequencies, then these keywords are thought to be semantically similar.
 
