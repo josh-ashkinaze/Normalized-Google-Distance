@@ -1,111 +1,37 @@
-import requests
-from fake_useragent import UserAgent
-from bs4 import BeautifulSoup
-import math, sys, time, random, collections
-import numpy as np
-import pandas as pd
+# Normalized Google Distance
 
-""" 
-A python script to calculate Normalized Google Distance 
+# About
+The Normalized Google Distance (NGD) is a semantic similarity measure, calculated based on the number of hits returned by Google for a set of keywords. If keywords have many pages in common relative to their respective, independent frequencies, then these keywords are thought to be semantically similar.
 
-The Normalized Google Distance (NGD) is a semantic similarity measure, 
-calculated based on the number of hits returned by Google for a set of 
-keywords. If keywords have many pages in common relative to their respective, 
-independent frequencies, then these keywords are thought to be semantically 
-similar. 
+If two search terms w1 and w2 never occur together on the same web page, but do occur separately, the NGD between them is infinite.
 
-If two search terms w1 and w2 never occur together on the same web 
-page, but do occur separately, the NGD between them is infinite. 
+Conversely, if both terms always occur together, their NGD is zero.
 
-If both terms always occur together, their NGD is zero.
-"""
+# Methods
+## Simple NGD
+To compute the NGD between two word:
 
-def NGD(w1, w2):
-  """
-  Returns the Normalized Google Distance between two queries.
+``` Python
+ngd = calculate_NGD(w1, w2)
+```
 
-  Params:
-   w1 (str): word 1
-   w2 (str): word 2
-  Returns:
-   NGD (float)
-  """
-  N = 25270000000.0 # Number of results for "the", proxy for total pages
-  N = math.log(N,2) 
-  if w1 != w2:
-    f_w1 = math.log(number_of_results(w1),2)
-    f_w2 = math.log(number_of_results(w2),2)
-    f_w1_w2 = math.log(number_of_results(w1+" "+w2),2)
-    NGD = (max(f_w1,f_w2) - f_w1_w2) / (N - min(f_w1,f_w2))
-    return NGD
-  else: 
-    return 0
- 
-def calculate_NGD(w1, w2, n_retries=10):
-  """ 
-  Attempt to calculate NGD. 
+## Pairwise NGD
+### As a dictionary
 
-  We will attempt to calculate NGD, trying `n_retries`. (Sometimes Google throws
-  captcha pages. But we will just wait and try again). Iff all attempts fail, 
-  then we'll return NaN for this pairwise comparison. 
+To compute pairwise NGDs (ex: computing the NGD for a matrix of political candinates)
+``` Python
+distances = pairwise_NGD(w1, w2)
+This will return a nested dictionary, where distances[i][j] = NGD(i, j)
+```
 
-  Params: 
-    w1 (str): word 1 
-    w2 (str): word 2
-    retries (int): Number of attempts to retry before returning NaN 
-  Returns:
-    if succesful:
-      returns NGD
-    if not succesful:
-      returns np.NaN
-  """
+As a dataframe
+To return the matrix as a dataframe:
 
-  for attempt in range(n_retries):
-    try:
-      return NGD(w1, w2)
-    except Exception as e:
-      print("Trying again...")
-      print(e)
-  else: 
-    print("Sorry. We tried and failed. Returning NaN.")
-    return np.NaN
+distances = pairwise_NGD(w1, w2)
+matrix_df = pairwise_NGD_to_df(distances)
+This will return a dataframe object where matrix_df[i][j] = NGD(i, j)
 
-def pairwise_NGD(element_list, retries=10):
-  """Compute pairwise NGD for a list of terms"""
-  distance_matrix = collections.defaultdict(dict) # init a nested dict
-  for i in element_list:
-    sleep(5, 10)
-    for j in element_list:
-      try: # See if we already calculated NGD(j, i)
-        print(i, j)
-        distance_matrix[i][j] = distance_matrix[j][i]
-      except KeyError: # If not, calculate NGD(i, j)
-        distance_matrix[i][j] = calculate_NGD(i, j, retries)
-  return distance_matrix
-
-def pairwise_NGD_to_df(distances):
-  """Returns a dataframe of pairwise NGD calculations"""
-  df_data = {} 
-  for i in distances:
-    df_data[i] = [distances[i][j] for j in distances]
-  df = pd.DataFrame(df_data)
-  df.index = distances
-  return df 
-
-def number_of_results(text):
-  """Returns the number of Google results for a given query."""
-  headers = {'User-Agent': UserAgent().firefox}
-  sleep(5, 10)
-  r = requests.get("https://www.google.com/search?q={}".format(text.replace(" ","+")), headers=headers)
-  soup = BeautifulSoup(r.text, "lxml") # Get text response
-  res = soup.find('div', {'id': 'resultStats'}) # Find result string 
-  return int(res.text.replace(",", "").split()[1]) # Return result int
-
-def sleep(alpha, beta):
-  """Sleep for an amount of time in range(alpha, beta)"""
-  rand = random.Random()
-  time.sleep(rand.uniform(alpha, beta))
-
-
-if __name__ == "__main__":
-  print("This is a script for calculating NGD.")
+Warnings
+Using this script may be in violation of Google's TOS. Please use this script for research purposes only.
+And on a related note, queries are somewhat slow because I put in calls to sleep() to space out requests. You can change these, but I do not reccomend doing so. You'll get flagged quickly.
+When dealing with Pairwise NGDs, the number of queries blows up fast. For a set of size n there are [(n-1)(n)]/2distinct comparisons.
