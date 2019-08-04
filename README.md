@@ -1,3 +1,4 @@
+
 # Normalized Google Distance
 
 # About
@@ -18,20 +19,20 @@ ngd = calculate_NGD(w1, w2)
 ## Pairwise NGD
 ### As a dictionary
 
-To compute pairwise NGDs (ex: computing the NGD for a matrix of political candinates)
+To compute pairwise NGDs (ex: computing the NGD for a matrix of political candidates)
 ``` Python
 distances = pairwise_NGD(w1, w2)
-This will return a nested dictionary, where distances[i][j] = NGD(i, j)
 ```
+This will return a nested dictionary, where ```distances[i][j] = NGD(i, j)```
 
-As a dataframe
+### As a dataframe
 To return the matrix as a dataframe:
-
+``` Python
 distances = pairwise_NGD(w1, w2)
 matrix_df = pairwise_NGD_to_df(distances)
-This will return a dataframe object where matrix_df[i][j] = NGD(i, j)
+```
 
-Warnings
-Using this script may be in violation of Google's TOS. Please use this script for research purposes only.
-And on a related note, queries are somewhat slow because I put in calls to sleep() to space out requests. You can change these, but I do not reccomend doing so. You'll get flagged quickly.
-When dealing with Pairwise NGDs, the number of queries blows up fast. For a set of size n there are [(n-1)(n)]/2distinct comparisons.
+# Warnings
+* Using this script may be in violation of Google's TOS. Please use this script for research purposes only.
+* And on a related note, queries are somewhat slow because I put in calls to sleep() to space out requests. You can change these, but I do not recommend doing so. You'll get flagged quickly.
+* When dealing with pairwise NGDs, the number of queries blows up fast. For a set of size n there are [(n-1)(n)]/2distinct comparisons.
