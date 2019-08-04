@@ -32,7 +32,6 @@ def NGD(w1, w2):
   """
   N = 25270000000.0 # Number of results for "the", proxy for total pages
   N = math.log(N,2) 
-
   if w1 != w2:
     f_w1 = math.log(number_of_results(w1),2)
     f_w2 = math.log(number_of_results(w2),2)
@@ -46,8 +45,8 @@ def calculate_NGD(w1, w2, n_retries=10):
   """ 
   Attempt to calculate NGD. 
 
-  We will attempt to calculate NGD, trying n_retries. (Sometimes Google throws
-  captcha pages but you can just wait and try again). And iff all attempts fail, 
+  We will attempt to calculate NGD, trying `n_retries`. (Sometimes Google throws
+  captcha pages. But we will just wait and try again). Iff all attempts fail, 
   then we'll return NaN for this pairwise comparison. 
 
   Params: 
@@ -60,6 +59,7 @@ def calculate_NGD(w1, w2, n_retries=10):
     if not succesful:
       returns np.NaN
   """
+
   for attempt in range(n_retries):
     try:
       return NGD(w1, w2)
@@ -73,21 +73,21 @@ def calculate_NGD(w1, w2, n_retries=10):
 def pairwise_NGD(element_list, retries=10):
   """Compute pairwise NGD for a list of terms"""
   distance_matrix = collections.defaultdict(dict) # init a nested dict
-  for e1 in element_list:
+  for i in element_list:
     sleep(5, 10)
-    for e2 in element_list:
-      try: 
-        print(e1, e2)
-        distance_matrix[e1][e2] = distance_matrix[e2][e1]
-      except KeyError: 
-        distance_matrix[e1][e2] = calculate_NGD(e1, e2, retries)
+    for j in element_list:
+      try: # See if we already calculated NGD(j, i)
+        print(i, j)
+        distance_matrix[i][j] = distance_matrix[j][i]
+      except KeyError: # If not, calculate NGD(i, j)
+        distance_matrix[i][j] = calculate_NGD(i, j, retries)
   return distance_matrix
 
 def pairwise_NGD_to_df(distances):
   """Returns a dataframe of pairwise NGD calculations"""
-  df_data = {} #
-  for cand in distances:
-    df_data[cand] = [distances[cand][other] for other in distances]
+  df_data = {} 
+  for i in distances:
+    df_data[i] = [distances[i][j] for j in distances]
   df = pd.DataFrame(df_data)
   df.index = distances
   return df 
