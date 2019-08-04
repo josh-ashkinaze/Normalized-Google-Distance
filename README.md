@@ -21,14 +21,15 @@ ngd = calculate_NGD(w1, w2)
 
 To compute pairwise NGDs (ex: computing the NGD for a matrix of political candidates)
 ``` Python
-distances = pairwise_NGD(w1, w2)
+a_list = [w1, w2, w3]
+distances = pairwise_NGD(a_list)
 ```
 This will return a nested dictionary, where ```distances[i][j] = NGD(i, j)```
 
 ### As a dataframe
 To return the matrix as a dataframe:
 ``` Python
-distances = pairwise_NGD(w1, w2)
+distances = pairwise_NGD(a_list)
 matrix_df = pairwise_NGD_to_df(distances)
 ```
 
