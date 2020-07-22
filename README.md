@@ -1,5 +1,5 @@
 
-# Update: It appears Google blocked my scraping method. Use is now highly unstable 
+#### Update: It appears Google blocked my scraping method. Use is now highly unstable 
 
 # Normalized Google Distance
 Read Formal Writeup: https://arxiv.org/pdf/cs/0412098.pdf
