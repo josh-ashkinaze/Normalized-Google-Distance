@@ -1,5 +1,5 @@
 
-#### Update: It appears Google blocked my scraping method. Use is now highly unstable 
+#### Update: It appears Google blocked my scraping method. If anyone has any ideas for working around the rate limiting (which is what's responsible for returning NoneType objects), let me know and we can implement!   
 
 # Normalized Google Distance
 Read Formal Writeup: https://arxiv.org/pdf/cs/0412098.pdf
