@@ -1,8 +1,8 @@
 
-#### Update: It appears Google blocked my scraping method. If anyone has any ideas for working around the rate limiting (which is what's responsible for returning NoneType objects), let me know and we can implement!   
+#### Update: It appears Google blocked my scraping method (hence returning NoneType objects). I think this is a really powerful computational social science tool, so if anyone has any ideas for possible rate-limit workarounds let me know and we can implement.   
 
 # Normalized Google Distance
-Read Formal Writeup: https://arxiv.org/pdf/cs/0412098.pdf
+Read Formal Writeup of the original paper: https://arxiv.org/pdf/cs/0412098.pdf
 # About
 The Normalized Google Distance (NGD) is a semantic similarity measure, calculated based on the number of hits returned by Google for a set of keywords. If keywords have many pages in common relative to their respective, independent frequencies, then these keywords are thought to be semantically similar.
 
