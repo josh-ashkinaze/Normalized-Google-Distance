@@ -12,7 +12,7 @@ Conversely, if both terms always occur together, their NGD is zero.
 
 # Methods
 ## Simple NGD
-To compute the NGD between two word:
+To compute the NGD between two words:
 
 ``` Python
 ngd = calculate_NGD(w1, w2)
@@ -24,12 +24,12 @@ ngd = calculate_NGD(w1, w2)
 To compute pairwise NGDs (ex: computing the NGD for a matrix of political candidates)
 ``` Python
 L = [w1, w2, w3]
-distances = pairwise_NGD(a_list)
+distances = pairwise_NGD(L)
 ```
 This will return a nested dictionary, where ```distances[i][j] = NGD(L_i, L_j)```
 
 ### As a dataframe
-To return the matrix as a dataframe:
+To return the above matrix as a dataframe:
 ``` Python
 distances = pairwise_NGD(L)
 matrix_df = pairwise_NGD_to_df(distances)
