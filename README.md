@@ -6,7 +6,7 @@ Read Formal Writeup of the original paper: https://arxiv.org/pdf/cs/0412098.pdf
 # About
 The Normalized Google Distance (NGD) is a semantic similarity measure, calculated based on the number of hits returned by Google for a set of keywords. If keywords have many pages in common relative to their respective, independent frequencies, then these keywords are thought to be semantically similar.
 
-If two search terms w1 and w2 never occur together on the same web page, but do occur separately, the NGD between them is infinite.
+If two search terms w1 and w2 never occur together on the same web page, but do occur separately, the NGD between them is 1.
 
 Conversely, if both terms always occur together, their NGD is zero.
 
