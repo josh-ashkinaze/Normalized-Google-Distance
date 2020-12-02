@@ -98,7 +98,7 @@ def number_of_results(text):
   sleep(5, 10)
   r = requests.get("https://www.google.com/search?q={}".format(text.replace(" ","+")), headers=headers)
   soup = BeautifulSoup(r.text, "lxml") # Get text response
-  res = soup.find('div', {'id': 'resultStats'}) # Find result string 
+  res = soup.find('div', {'id': 'result-stats'}) # Find result string 
   return int(res.text.replace(",", "").split()[1]) # Return result int
 
 def sleep(alpha, beta):
