@@ -1,8 +1,8 @@
 
-#### Update: It appears Google blocked my scraping method (hence returning NoneType objects). I think this is a really powerful computational social science tool, so if anyone has any ideas for possible rate-limit workarounds let me know and we can implement.   
 
 # Normalized Google Distance
 Read Formal Writeup of the original paper: https://arxiv.org/pdf/cs/0412098.pdf
+
 # About
 The Normalized Google Distance (NGD) is a semantic similarity measure, calculated based on the number of hits returned by Google for a set of keywords. If keywords have many pages in common relative to their respective, independent frequencies, then these keywords are thought to be semantically similar.
 
@@ -39,3 +39,7 @@ matrix_df = pairwise_NGD_to_df(distances)
 * Using this script may be in violation of Google's TOS. Please use this script for research purposes only.
 * And on a related note, queries are somewhat slow because I put in calls to sleep() to space out requests. You can change these, but I do not recommend doing so. You'll get flagged quickly.
 * When dealing with pairwise NGDs, the number of queries blows up fast. For a set of size ```n``` there are ```[(n-1)(n)]/2``` distinct comparisons.
+
+# Case Study
+Here's a case study I did, looking at how the media talks about political candidates. 
+https://www.joshash.space/data-science/clusters-of-democratic-candidates-1
