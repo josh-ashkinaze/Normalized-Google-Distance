@@ -10,6 +10,8 @@ If two search terms w1 and w2 never occur together on the same web page, but do 
 
 Conversely, if both terms always occur together, their NGD is zero.
 
+This script provides some useful functions for working with NGD. 
+
 # Methods
 ## Simple NGD
 To compute the NGD between two words:
@@ -41,5 +43,5 @@ matrix_df = pairwise_NGD_to_df(distances)
 * When dealing with pairwise NGDs, the number of queries blows up fast. For a set of size ```n``` there are ```[(n-1)(n)]/2``` distinct comparisons.
 
 # Case Study
-Here's a case study I did, looking at how the media talks about political candidates. 
-https://www.joshash.space/data-science/clusters-of-democratic-candidates-1
+Here's a [case study I did] (https://www.joshash.space/data-science/clusters-of-democratic-candidates-1
+), looking at how the media talks about political candidates. 
