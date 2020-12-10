@@ -17,7 +17,7 @@ similar.
 If two search terms w1 and w2 never occur together on the same web 
 page, but do occur separately, the NGD between them is infinite. 
 
-If both terms always occur together, their NGD is zero.
+If both terms always (and only) occur together, their NGD is zero.
 """
 
 def NGD(w1, w2):
