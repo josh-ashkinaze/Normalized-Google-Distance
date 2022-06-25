@@ -17,7 +17,7 @@ This script provides some useful functions for working with NGD.
 To compute the NGD between two words:
 
 ``` Python
-ngd = calculate_NGD(w1, w2)
+ngd = calculate_NGD("w1", "w2")
 ```
 
 ## Pairwise NGD
@@ -25,7 +25,7 @@ ngd = calculate_NGD(w1, w2)
 
 To compute pairwise NGDs (ex: computing the NGD for a matrix of political candidates)
 ``` Python
-L = [w1, w2, w3]
+L = ["w1", "w2", "w3"]
 distances = pairwise_NGD(L)
 ```
 This will return a nested dictionary, where ```distances[i][j] = NGD(L_i, L_j)```
